@@ -9,7 +9,7 @@ RUN apk add --no-cache cmake gcc g++ gcc-arm-none-eabi g++-arm-none-eabi ninja p
 
 # Download and install SDK
 RUN mkdir -p /usr/src/
-RUN git clone --depth 1 --branch ${pico_sdk_version} https://github.com/raspberrypi/pico-sdk.git /usr/src/pico-sdk
+RUN git clone --recurse-submodules --depth 1 --branch ${pico_sdk_version} https://github.com/raspberrypi/pico-sdk.git /usr/src/pico-sdk
 
 # Export environment variables
 ENV PICO_SDK_PATH=/usr/src/pico-sdk
